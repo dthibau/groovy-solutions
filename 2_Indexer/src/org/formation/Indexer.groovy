@@ -36,3 +36,12 @@ map =new TreeMap();
 words.findAll({it.size()>2}).each(fillMap)
 
 println 'Step 3 ' + map
+
+// InvertedMap
+def invertedMap = new TreeMap();
+map.each { entry ->
+	int value = map.get(entry.key)
+	invertedMap[value] = invertedMap.get(value,[]) + entry.key
+}
+
+println 'Step 4 ' + invertedMap
