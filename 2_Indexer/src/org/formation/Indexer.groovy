@@ -45,3 +45,8 @@ map.each { entry ->
 }
 
 println 'Step 4 ' + invertedMap
+
+// Boucle sur une Range
+println 'Top parade :'
+(3..1).each({println "$it : ${invertedMap[it]}"})
+
