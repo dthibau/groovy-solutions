@@ -30,3 +30,9 @@ map = [:]
 words.findAll({it.size()>2}).each(fillMap)
 
 println 'Step 2 ' + map
+
+// Sort by keys
+map =new TreeMap();
+words.findAll({it.size()>2}).each(fillMap)
+
+println 'Step 3 ' + map
