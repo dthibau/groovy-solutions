@@ -23,3 +23,10 @@ def fillMap = {
 words.each(fillMap)
 
 println 'Step 1 ' + map
+
+// Plus de 2 caractères
+map = [:]
+
+words.findAll({it.size()>2}).each(fillMap)
+
+println 'Step 2 ' + map
