@@ -3,7 +3,7 @@ package org.formation.model
 import java.time.LocalDate
 
 class Index {
-	String source
+	def source
 	LocalDate createdDate = LocalDate.now(), indexedDate
 	def keywords = [:]
 	

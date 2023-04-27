@@ -1,6 +1,7 @@
 package org.formation
 
 import org.formation.model.Index
+import org.formation.model.Persistent
 import org.formation.service.Indexer
 
 def text='''Pour le deuxième hiver consécutif, Delhi étouffe sous la pollution. Dans la nuit du 6 au 7 novembre, alors que les températures chutaient à 
@@ -21,5 +22,8 @@ Index index = indexer.buildIndex(text)
 
 println index
 
+// Trait dynamique
+def persistentIndex = new Index(source:index.source, keywords:index.keywords, createdDate: index.createdDate, indexedDate: index.indexedDate) as Persistent
 
+persistentIndex.save()
 
