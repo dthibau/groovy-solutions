@@ -19,8 +19,13 @@ Closure toLowerCase = { words ->
 	words.collect {it.toLowerCase()}
 }
 
-Closure minimal3 = { w ->
-	w.findAll {it.size() >= 3 }
+Closure minimal3 = { w -> 
+	println "## Résolution strategy $resolveStrategy ${Closure.OWNER_FIRST}"
+	println "## Propriétaire $owner"
+	println "## Délégué $delegate"
+	println "## thisObject $thisObject"
+	return w.findAll {it.size() >= 3 }
+
 }
 
 Closure stopWords = { words ->
