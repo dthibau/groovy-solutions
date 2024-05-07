@@ -15,26 +15,27 @@ jours sont dus à des processus de réaction chimique similaires. Le responsable
 le dioxyde d’azote issu de la combustion du charbon. Mélangé au dioxyde de soufre, issu de la 
 même combustion, il crée un acide sulfurique et un brouillard épais'''
 
-Closure toLowerCase = { words -> 
+Closure toLowerCase = { -> 
 	words.collect {it.toLowerCase()}
 }
 
-Closure minimal3 = { w -> 
+Closure minimal3 = {  -> 
 	println "## Résolution strategy $resolveStrategy ${Closure.OWNER_FIRST}"
 	println "## Propriétaire $owner"
 	println "## Délégué $delegate"
 	println "## thisObject $thisObject"
-	return w.findAll {it.size() >= 3 }
+	return words.findAll {it.size() >= 3 }
 
 }
-
-Closure stopWords = { words ->
+Closure stopWords = { ->
 	words.findAll {!['delhi','londres','pékin','chine'].contains(it.toLowerCase())}
 }
 filters = [toLowerCase, minimal3, stopWords]
 
 // Instancier un indexeur
 def indexer = new Indexer(filters: filters)
+
+filters.each { it.delegate = indexer }
 
 Index index = indexer.buildIndex(text)
 

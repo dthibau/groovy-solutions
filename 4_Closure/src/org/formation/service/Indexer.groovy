@@ -6,15 +6,15 @@ import org.formation.model.Index
 class Indexer {
 	String tokenizer = /\b/
 	List<Closure> filters = []
-
+	def words
 	
 	public Index buildIndex(source) {
 		def texte = source.toString()
-		def words = texte.split(tokenizer)
+		words = texte.split(tokenizer)
 		
 		filters.each { c ->
 			// équivalent à c.call(words)
-			words = c(words);
+			words = c()  ;
 			println 'Words after filter applied : ' + words
 		}
 		Index index = new Index(source:source)
